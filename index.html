@@ -1,159 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>California State Roleplay</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>California Roleplay | ER:LC Private Server</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    body {
+      background: radial-gradient(circle, #2c003e, #0a0010);
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-<style>
-:root {
-  --bg-black: #0c0b0d;
-  --red-light: #ff3b3b;
-  --red-dark: #b10f1e;
-  --muted-gray: #d4d4d4;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-* {margin:0;padding:0;box-sizing:border-box;}
-body {font-family:'Montserrat',sans-serif;background:var(--bg-black);color:#fff;overflow-x:hidden;}
-a {text-decoration:none;color:inherit;}
-header{text-align:center;padding:22px 10px;font-family:'Orbitron',sans-serif;font-weight:700;font-size:22px;background:linear-gradient(180deg,var(--red-light),var(--red-dark));text-shadow:0 2px 14px rgba(177,15,30,0.7);}
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 5%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.bg-vortex {
-  position: fixed; inset:0; z-index:-2; overflow:hidden;
-  background: radial-gradient(circle at 30% 30%, rgba(255,50,50,0.08), transparent 15%),
-              radial-gradient(circle at 70% 70%, rgba(180,0,0,0.06), transparent 15%),
-              linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
-}
-.vortex-layer {
-  position:absolute; inset:-25%;
-  background: conic-gradient(from 0deg, rgba(180,0,0,0.07), transparent 10% 30%),
-              conic-gradient(from 45deg, rgba(255,0,0,0.05), transparent 8% 20%);
-  mix-blend-mode: screen;
-  filter: blur(35px) contrast(1.1) saturate(1.2);
-  animation: spin 45s linear infinite;
-  transform-origin:center;
-}
-.vortex-layer.alt {animation-direction:reverse; animation-duration:65s; opacity:0.92;}
-@keyframes spin {from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #ff3b3b;
+    }
 
-.container {max-width: 1200px; margin:80px auto; padding:0 20px;}
-section {padding:80px 0; display:flex; align-items:center; gap:80px; opacity:0; transform:translateY(40px); transition: all 1s ease;}
-section.visible {opacity:1; transform:translateY(0);}
-h1{font-family:'Orbitron',sans-serif;font-size:48px;color:var(--red-light);margin-bottom:16px;text-shadow:0 2px 14px rgba(177,15,30,0.4);}
-h2{font-family:'Orbitron',sans-serif;font-size:28px;color:var(--red-light);margin-bottom:12px;}
-p{font-size:18px;line-height:1.7;color:var(--muted-gray);}
+    nav a {
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-.dept-card {flex:0 0 400px;background: rgba(30,0,0,0.45);border-radius:16px;padding:28px 24px;text-align:center;backdrop-filter: blur(8px);box-shadow:0 10px 40px rgba(0,0,0,0.6);transition: transform 0.3s ease, box-shadow 0.3s ease;}
-.dept-card:hover {transform:translateY(-8px);box-shadow:0 20px 50px rgba(255,20,20,0.5);}
-.dept-card img {width:160px;height:160px;object-fit:contain;margin-bottom:18px;}
+    nav a:hover {
+      color: #ff3b3b;
+    }
 
-a.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,var(--red-light),var(--red-dark));padding:14px 24px;border-radius:14px;font-weight:600;font-family:'Orbitron',sans-serif;transition: transform 0.18s ease, box-shadow 0.18s ease;}
-a.btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(177,15,30,0.3);}
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('https://i.imgur.com/your-vortex-image.jpg') center/cover no-repeat;
+      position: relative;
+    }
 
-footer{text-align:center;padding:48px 10px;color:var(--muted-gray);opacity:0.8;font-size:15px;}
+    .hero::after {
+      content: '';
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
+    }
 
-@media(max-width:900px){
-  section{flex-direction:column;text-align:center;}
-  .dept-card{margin:0 auto;}
-}
-</style>
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #ff3b3b;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      color: #ddd;
+    }
+
+    .hero .join-btn {
+      background: #ff3b3b;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero .join-btn:hover {
+      background: #e60000;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #ff3b3b;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Moderation Section */
+    .moderation {
+      background: rgba(255, 59, 59, 0.05);
+      border-left: 5px solid #ff3b3b;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 3rem;
+    }
+
+    .moderation p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    /* Partners Section */
+    .partners {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .partner-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #ff3b3b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      flex: 1 1 300px;
+      max-width: 350px;
+      transition: 0.3s;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #ff3b3b;
+    }
+
+    .partner-card h3 {
+      color: #ff3b3b;
+      margin-bottom: 1rem;
+    }
+
+    .partner-card p {
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 5%;
+      background: rgba(0,0,0,0.8);
+      color: #aaa;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<div class="bg-vortex">
-  <div class="vortex-layer"></div>
-  <div class="vortex-layer alt"></div>
-</div>
+  <header>
+    <h1>California Roleplay</h1>
+    <nav>
+      <a href="#moderation">Moderation</a>
+      <a href="#partners">Partners</a>
+      <a href="#join">Join</a>
+    </nav>
+  </header>
 
-<header>
-all funds donated to cs:rp go straight to cancer awareness ❤️
-</header>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Next-Level ER:LC Roleplay</h2>
+      <p>Join California Roleplay, the premier private server for ER:LC. Immerse yourself in high-quality roleplay with top-tier moderation and a thriving community. Server code: <strong>CSRPOLD</strong>.</p>
+      <a class="join-btn" href="#join">Join Now</a>
+    </div>
+  </section>
 
-<div class="container">
+  <section id="moderation">
+    <h2 class="section-title">Our Moderation</h2>
+    <div class="moderation">
+      <p>At California Roleplay, our moderation team sets the gold standard. Each member is trained to ensure a fair, engaging, and immersive roleplay experience. Our zero-tolerance policy for cheating, trolling, or misconduct ensures that the community thrives safely. Staff are always active in-game and in communication channels, providing swift responses to any issue. Your gameplay is our top priority.</p>
+    </div>
+  </section>
 
-<!-- Hero / Welcome -->
-<section>
-  <div class="dept-card">
-    <img src="https://cdn.jsdelivr.net/gh/CSRP-Assets/chp.png" alt="CHP Logo">
-    <h2>CHP</h2>
-    <p>california highway patrol — traffic enforcement, highway incidents, pursuit ops</p>
-  </div>
-  <div>
-    <h1>welcome to california state roleplay</h1>
-    <p>we're a professional er:lc roleplay server on roblox. unwhitelisted access allowed. moderation is fair and appeals can be done on discord. join events, patrols, and community ops today.</p>
-    <a href="#" class="btn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" style="width:22px;vertical-align:middle;"> join discord</a>
-  </div>
-</section>
+  <section id="partners">
+    <h2 class="section-title">Our Partners</h2>
+    <div class="partners">
+      <div class="partner-card">
+        <h3>1990s Springfield RP</h3>
+        <p>One of our closest partners, 1990s Springfield RP, shares a long-standing, conflict-free relationship with California Roleplay. Our ongoing staff collaborations and joint events ensure a smooth, enjoyable experience for members of both communities. Together, we elevate ER:LC roleplay standards.</p>
+      </div>
+      <!-- Add more partner cards here if needed -->
+    </div>
+  </section>
 
-<!-- LAPD -->
-<section>
-  <div class="dept-card">
-    <img src="https://cdn.jsdelivr.net/gh/CSRP-Assets/lapd.png" alt="LAPD Logo">
-    <h2>LAPD</h2>
-    <p>los angeles police department — city policing, investigations, patrols</p>
-  </div>
-  <div>
-    <h1>departments</h1>
-    <p>the main departments include chp, lapd, lafd, and ladot. fully staffed, realistic roleplay, coordinated ops.</p>
-  </div>
-</section>
+  <section id="join">
+    <h2 class="section-title">Join California Roleplay</h2>
+    <p style="text-align:center; font-size:1.2rem; color:#ddd;">To join our server, enter code <strong>CSRPOLD</strong> in-game. Step into a world where your roleplay matters, backed by active, dedicated staff, and a community that thrives on creativity and respect.</p>
+  </section>
 
-<!-- LAFD / LADOT -->
-<section>
-  <div class="dept-card">
-    <img src="https://cdn.jsdelivr.net/gh/CSRP-Assets/lafd.png" alt="LAFD Logo">
-    <h2>LAFD</h2>
-    <p>los angeles fire department — fire, ems, rescue operations</p>
-  </div>
-  <div class="dept-card">
-    <img src="https://cdn.jsdelivr.net/gh/CSRP-Assets/ladot.png" alt="LADOT Logo">
-    <h2>LADOT</h2>
-    <p>los angeles department of transportation — traffic management, road safety</p>
-  </div>
-</section>
-
-<!-- Moderation -->
-<section>
-  <div class="dept-card">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shield.svg" alt="Moderation">
-  </div>
-  <div>
-    <h1>moderation & fairness</h1>
-    <p>everything is fair. warnings, timeouts, bans only when needed. appeals can be submitted on discord for review by staff.</p>
-  </div>
-</section>
-
-<!-- Discord -->
-<section>
-  <div class="dept-card">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
-  </div>
-  <div>
-    <h1>join our discord</h1>
-    <p>chat with staff, join events, coordinate patrols, and submit appeals all in one place.</p>
-    <a href="#" class="btn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" style="width:22px;vertical-align:middle;"> join discord</a>
-  </div>
-</section>
-
-</div>
-
-<footer>
-california state roleplay — community-run. not affiliated with prc or er:lc.
-</footer>
-
-<script>
-// scroll fade-in animation
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add('visible');}
-  });
-},{threshold:0.2});
-sections.forEach(section=>observer.observe(section));
-</script>
-
+  <footer>
+    &copy; 2025 California Roleplay | ER:LC Private Server
+  </footer>
 </body>
 </html>
