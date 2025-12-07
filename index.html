@@ -1,1 +1,355 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>California State Roleplay — ER:LC • Play Now</title>
+  <meta name="description" content="California State Roleplay — ER:LC roleplay community. CHP, LAPD, LADOT, LAFD. Unwhitelisted play allowed. Join our Discord to appeal bans and coordinate.">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-black:#070607;
+      --red-600:#e11d2f;
+      --red-700:#b10f1e;
+      --muted:#bdbdbd;
+      --glass: rgba(255,255,255,0.04);
+      --card: rgba(255,255,255,0.03);
+      --max-width:1100px;
+    }
+
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body,#root{height:100%}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--bg-black);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      overflow-x:hidden;
+    }
+
+    /* Vortex background */
+    .bg-vortex{
+      position:fixed; inset:0; z-index:-2; overflow:hidden;
+      background: radial-gradient(circle at 30% 30%, rgba(255,20,20,0.07), transparent 10%),
+                  radial-gradient(circle at 70% 70%, rgba(200,0,0,0.06), transparent 10%),
+                  linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.92));
+    }
+    /* animated rotating vortex layer using conic-gradient */
+    .vortex-layer{
+      position:absolute; inset:-25%;
+      background:
+        conic-gradient(from 90deg, rgba(180,0,0,0.07), transparent 10% 20%),
+        conic-gradient(from 0deg, rgba(255,0,0,0.05), transparent 8% 15%);
+      mix-blend-mode:screen;
+      filter: blur(30px) contrast(1.05) saturate(1.1);
+      animation: spin 40s linear infinite;
+      transform-origin:center;
+    }
+    .vortex-layer.alt{ animation-direction:reverse; animation-duration:60s; opacity:0.9; }
+
+    @keyframes spin{ from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+    /* page layout */
+    .wrap{ max-width:var(--max-width); margin:36px auto; padding:36px; }
+    header{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand{
+      display:flex; align-items:center; gap:14px;
+    }
+    .logo{
+      width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,var(--red-600),var(--red-700)); display:grid; place-items:center;
+      box-shadow: 0 6px 24px rgba(177,15,30,0.35);
+      font-family:Orbitron, sans-serif; font-weight:700; color:#090909;
+      transform:translateZ(0);
+    }
+    h1{ font-family:Orbitron, sans-serif; font-size:20px; letter-spacing:0.6px; }
+    header nav{ display:flex; gap:14px; align-items:center; }
+    a.btn{
+      background:linear-gradient(180deg,var(--red-600),var(--red-700));
+      color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; box-shadow:0 8px 30px rgba(177,15,30,0.18);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    a.btn:hover{ transform:translateY(-3px); box-shadow:0 16px 40px rgba(177,15,30,0.24); }
+
+    /* hero */
+    .hero{
+      display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center; margin-top:28px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px; padding:28px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .hero h2{ font-family:Orbitron, sans-serif; font-size:34px; margin-bottom:8px; color:var(--red-600); text-shadow: 0 2px 18px rgba(177,15,30,0.16); }
+    .lead{ color:var(--muted); margin-bottom:16px; }
+
+    /* departments column */
+    .dept{
+      background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.35));
+      border-radius:12px; padding:18px; border:1px solid rgba(255,255,255,0.03);
+    }
+    .dept h3{ font-family:Orbitron; margin-bottom:10px; color:#fff; font-size:18px; }
+    .dept-list{ display:flex; flex-direction:column; gap:10px; }
+    .dept-item{
+      display:flex; align-items:center; gap:12px; padding:10px; border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      transition:transform .18s ease, box-shadow .18s ease;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .dept-item:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,0.6); }
+    .dept-badge{ width:48px; height:48px; border-radius:10px; display:grid; place-items:center; font-weight:700; font-family:Orbitron; color:#090909; background:linear-gradient(180deg,var(--red-600),var(--red-700)); }
+
+    /* features / cards */
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-top:22px; }
+    .card{
+      background:var(--card); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
+      min-height:120px;
+    }
+    .card h4{ font-family:Orbitron; margin-bottom:8px; color:var(--red-600); }
+
+    /* Moderation section */
+    .moderation{
+      margin-top:20px; display:grid; grid-template-columns:1fr 340px; gap:18px; align-items:start;
+    }
+    .mod-steps{ display:flex; flex-direction:column; gap:10px; }
+    .step{
+      background:linear-gradient(0deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* footer */
+    footer{ margin-top:36px; padding:18px; text-align:center; color:var(--muted); font-size:13px; }
+
+    /* small screens */
+    @media (max-width:980px){
+      .hero{ grid-template-columns:1fr; }
+      .moderation{ grid-template-columns:1fr; }
+    }
+
+    /* fade-in animation for sections */
+    .reveal{ opacity:0; transform:translateY(8px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.9,.2,1); will-change:opacity,transform; }
+    .reveal.in{ opacity:1; transform:none; }
+
+    /* subtle heading underline */
+    .underline{
+      height:3px; width:56px; border-radius:6px; margin-top:8px; background:linear-gradient(90deg,var(--red-600),var(--red-700));
+      box-shadow: 0 8px 24px rgba(177,15,30,0.12);
+    }
+
+    /* accessible focus */
+    a:focus,a.btn:focus{ outline:3px solid rgba(225,29,47,0.16); outline-offset:4px; border-radius:8px }
+  </style>
+</head>
+<body>
+  <div class="bg-vortex" aria-hidden="true">
+    <div class="vortex-layer"></div>
+    <div class="vortex-layer alt"></div>
+  </div>
+
+  <main class="wrap" id="root">
+    <header class="reveal" data-delay="0">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">CSR</div>
+        <div>
+          <h1>California State Roleplay</h1>
+          <div style="color:var(--muted);font-size:13px">ER:LC • Unwhitelisted • Community-run</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="btn" href="#join" id="join-cta">Join Discord</a>
+        <a class="btn" href="#departments" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff;padding:10px 12px">Departments</a>
+      </nav>
+    </header>
+
+    <section class="hero-card hero reveal" data-delay="120">
+      <div>
+        <h2>California State Roleplay</h2>
+        <div class="underline" aria-hidden="true"></div>
+        <p class="lead">High-quality ER:LC roleplay for Roblox — realistic departments, open community, fair moderation. Join officers, medics, responders, or civilians. No whitelist required.</p>
+
+        <div class="grid" style="margin-top:12px;">
+          <div class="card">
+            <h4>Unwhitelisted Play</h4>
+            <p style="color:var(--muted);font-size:14px">Anyone can join in-game. We keep in-game barriers low so players can jump straight into roleplay while keeping server performance and safety balanced.</p>
+          </div>
+          <div class="card">
+            <h4>Departments</h4>
+            <p style="color:var(--muted);font-size:14px">CHP • LAPD • LADOT • LAFD — full training guides, ranks, roster tools, and community-driven events.</p>
+          </div>
+          <div class="card">
+            <h4>Events & Ops</h4>
+            <p style="color:var(--muted);font-size:14px">Regular ops, city-wide events, and seasonal roleplay scenarios with pre-briefings via Discord.</p>
+          </div>
+          <div class="card">
+            <h4>Staff & Support</h4>
+            <p style="color:var(--muted);font-size:14px">Dedicated staff team for onboarding, training, and investigations — clear appeals and transparent outcomes.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="dept reveal" data-delay="240" id="departments" aria-labelledby="dept-title">
+        <h3 id="dept-title">Key Departments</h3>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:12px">Click a department for responsibilities & recruitment.</div>
+        <div class="dept-list">
+          <div class="dept-item" role="button" tabindex="0" onclick="showDept('CHP')">
+            <div class="dept-badge">CHP</div>
+            <div>
+              <div style="font-weight:600">California Highway Patrol</div>
+              <div style="color:var(--muted);font-size:13px">Traffic enforcement, highway incidents, multi-vehicle collision response.</div>
+            </div>
+          </div>
+
+          <div class="dept-item" role="button" tabindex="0" onclick="showDept('LAPD')">
+            <div class="dept-badge">LAPD</div>
+            <div>
+              <div style="font-weight:600">Los Angeles Police Department</div>
+              <div style="color:var(--muted);font-size:13px">City policing, investigations, community policing initiatives.</div>
+            </div>
+          </div>
+
+          <div class="dept-item" role="button" tabindex="0" onclick="showDept('LADOT')">
+            <div class="dept-badge">LADOT</div>
+            <div>
+              <div style="font-weight:600">Los Angeles Department of Transportation</div>
+              <div style="color:var(--muted);font-size:13px">Traffic management, scene safety, vehicle recovery coordination.</div>
+            </div>
+          </div>
+
+          <div class="dept-item" role="button" tabindex="0" onclick="showDept('LAFD')">
+            <div class="dept-badge">LAFD</div>
+            <div>
+              <div style="font-weight:600">Los Angeles Fire Department</div>
+              <div style="color:var(--muted);font-size:13px">Fire, EMS, rescue operations, mass-casualty response.</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Moderation + Appeal -->
+    <section class="moderation reveal" data-delay="360" aria-labelledby="mod-title">
+      <div>
+        <h3 id="mod-title">Moderation — fair, transparent, and appealable</h3>
+        <p style="color:var(--muted);margin-top:8px">Our moderation philosophy prioritizes fair treatment, evidence-based decisions, and a clear route to appeal. This keeps roleplay fun and the community safe.</p>
+
+        <div class="mod-steps" style="margin-top:12px">
+          <div class="step">
+            <strong>1) Report & Evidence</strong>
+            <p style="color:var(--muted);font-size:14px;margin-top:6px">Players report incidents via our Discord forms or in-game report tool. Staff collect screenshots, logs, and server evidence before action.</p>
+          </div>
+
+          <div class="step">
+            <strong>2) Investigation & Notice</strong>
+            <p style="color:var(--muted);font-size:14px;margin-top:6px">An impartial investigator reviews evidence; if action is needed we issue warnings or temporary sanctions with a clear reason message and duration.</p>
+          </div>
+
+          <div class="step">
+            <strong>3) Appeal Process</strong>
+            <p style="color:var(--muted);font-size:14px;margin-top:6px">Appeals are handled on Discord under a dedicated appeals channel. You can submit evidence and request review. Appeals are adjudicated by a separate appeals team.</p>
+          </div>
+
+          <div class="step">
+            <strong>4) Transparency</strong>
+            <p style="color:var(--muted);font-size:14px;margin-top:6px">Final decisions include a short explanation. Repeat offenders follow an escalated policy. Community moderators publish anonymized case statistics monthly.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="dept" id="join" aria-labelledby="join-title">
+        <h3 id="join-title">Join & Communication</h3>
+        <p style="color:var(--muted);font-size:14px">Primary coordination happens on Discord — recruitment, appeals, events, and staff contact. Use the invite below to join.</p>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px">
+          <!-- replace # with your Discord invite -->
+          <a class="btn" href="#" id="discord-link" onclick="evtPrevent(event)">Join Discord • Appeal & Play</a>
+
+          <div style="font-size:13px;color:var(--muted);padding:12px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)">
+            <strong>Note:</strong> Unwhitelisted play is allowed — no whitelist required to join servers. Some specialized teams (events or tactical units) may require internal training.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- recruitment / quicklinks -->
+    <section class="reveal" data-delay="480" style="margin-top:20px">
+      <h3>Quick Recruit & Info</h3>
+      <div class="underline" style="width:40px"></div>
+
+      <div class="grid" style="margin-top:14px">
+        <div class="card">
+          <h4>How to Join a Department</h4>
+          <ol style="color:var(--muted);margin-top:8px;padding-left:18px">
+            <li>Join Discord and read the relevant department channel.</li>
+            <li>Complete the basic training form (simple form inside Discord).</li>
+            <li>Attend shift briefing / training session — then you're active.</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h4>Code of Conduct (summary)</h4>
+          <ul style="color:var(--muted);margin-top:8px;padding-left:18px">
+            <li>No cheating or exploiting game mechanics.</li>
+            <li>Respect roleplay boundaries & follow staff directions.</li>
+            <li>Use the appeal system if you disagree with a sanction.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Staff Contacts</h4>
+          <p style="color:var(--muted);margin-top:8px">Active admins and appeals officers have pinned roles on Discord — reach them there for urgent support.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal" data-delay="600">
+      <div style="max-width:var(--max-width);margin:18px auto;color:var(--muted)">
+        <div style="font-size:13px">California State Roleplay — Community-run. Not affiliated with PRC, ER:LC, or Roblox Corporation.</div>
+        <div style="margin-top:8px">© <span id="yr"></span> California State Roleplay — Built with ❤️ for the community.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // small utilities: reveal on load + stagger
+    document.addEventListener('DOMContentLoaded', () => {
+      // handle fade-in reveals
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach((el, i) => {
+        const delay = Number(el.dataset.delay || 60);
+        setTimeout(()=> el.classList.add('in'), delay + i*60);
+      });
+
+      // year
+      document.getElementById('yr').textContent = new Date().getFullYear();
+    });
+
+    // department modal-like alert (simple)
+    function showDept(code){
+      const map = {
+        CHP: 'CHP — Traffic enforcement, highway incident response, mobile patrols and pursuit procedures.',
+        LAPD: 'LAPD — City policing duties, investigations, community ops, and detective units.',
+        LADOT: 'LADOT — Traffic control, incident scene safety, and road clearance coordination.',
+        LAFD: 'LAFD — Fire & EMS response, rescue operations, and incident triage.'
+      };
+      alert(map[code] || 'Department info not found');
+    }
+
+    // disable the placeholder discord button if not updated
+    function evtPrevent(e){
+      if (e.currentTarget.href === '#' || e.currentTarget.id === 'discord-link'){
+        e.preventDefault();
+        // small helpful modal
+        const ok = confirm('This page contains a placeholder Discord link. Replace the href in the index.html with your invite URL. Open docs for GitHub Pages instructions?');
+        if(ok) window.open('https://docs.github.com/en/pages', '_blank');
+      }
+    }
+  </script>
+</body>
+</html>
