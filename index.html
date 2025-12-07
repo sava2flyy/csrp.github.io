@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cali-RP — ER:LC California Server</title>
   <meta name="description" content="California ER:LC — join our server" />
   <style>
@@ -38,8 +38,8 @@
     .section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:4rem 6vw;position:relative;z-index:2;flex-direction:column;}
     .hero{display:flex;align-items:center;justify-content:center;width:100%;max-width:1300px}
     .left{display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding:6vh 4vw;max-width:640px;}
-    .title{font-size:clamp(28px,6vw,64px);line-height:1.1;font-weight:800;color:var(--text-white);text-align:left;word-wrap:break-word}
-    .subtitle{font-size:clamp(14px,1.6vw,20px);opacity:0.9;color:rgba(255,255,255,0.9);word-wrap:break-word}
+    .title{line-height:1.1;font-weight:800;color:var(--text-white);text-align:left;word-wrap:break-word}
+    .subtitle{opacity:0.9;color:rgba(255,255,255,0.9);word-wrap:break-word}
     .cta-row{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;font-weight:700;border:0;cursor:pointer;text-decoration:none;white-space:nowrap}
     .btn-join{background:linear-gradient(180deg,var(--green-join),#0f7e36);color:#042007;box-shadow:0 6px 18px rgba(24,168,75,0.18)}
@@ -51,24 +51,21 @@
     .popup-header a{color:#0ea5e9;text-decoration:underline;font-weight:700}
     .popup-header .close-btn{cursor:pointer;font-weight:900;font-size:18px;color:#fff;margin-left:12px}
 
-    @media (max-width:900px){
-      .hero{flex-direction:column;align-items:center;text-align:center;}
-      .left{align-items:center;gap:12px;padding:6vh 4vw;}
-      .title{font-size:clamp(24px,8vw,48px)}
-      .subtitle{font-size:16px}
-      .cta-row{flex-direction:column;align-items:center;gap:12px;width:100%}
-      .btn{width:80%;justify-content:center}
-      .popup-header{flex-direction:column;align-items:center;text-align:center;padding:12px;gap:6px}
-      .popup-header .close-btn{align-self:center}
-    }
-    @media (max-width:480px){
-      .title{font-size:clamp(20px,10vw,40px)}
-      .subtitle{font-size:14px}
-      .btn{width:90%}
-      .popup-header span{font-size:14px}
-      .popup-header a{font-size:14px}
-      .popup-header .close-btn{font-size:16px}
-    }
+    /* PC scaling */
+    .pc .title{font-size:clamp(28px,6vw,64px)}
+    .pc .subtitle{font-size:clamp(14px,1.6vw,20px)}
+    .pc .cta-row{flex-direction:row;align-items:flex-start;gap:14px}
+    .pc .btn{width:auto}
+
+    /* Mobile scaling */
+    .mobile .hero{flex-direction:column;align-items:center;text-align:center}
+    .mobile .left{align-items:center;gap:12px;padding:6vh 4vw}
+    .mobile .title{font-size:clamp(20px,10vw,40px)}
+    .mobile .subtitle{font-size:14px}
+    .mobile .cta-row{flex-direction:column;align-items:center;gap:12px;width:90%}
+    .mobile .btn{width:80%}
+    .mobile .popup-header{flex-direction:column;align-items:center;text-align:center;padding:12px;gap:6px}
+    .mobile .popup-header .close-btn{align-self:center;font-size:16px}
   </style>
 </head>
 <body>
@@ -100,6 +97,19 @@
   </main>
 
   <script>
+    // Detect device type and apply class to body
+    function detectDevice() {
+      const ua = navigator.userAgent;
+      const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua);
+      if(isMobile){
+        document.body.classList.add('mobile');
+      } else {
+        document.body.classList.add('pc');
+      }
+    }
+
+    detectDevice();
+
     document.getElementById('closePopup').addEventListener('click', ()=>{
       document.getElementById('popupHeader').style.display='none';
     });
