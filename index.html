@@ -212,23 +212,7 @@
 
   </main>
 
-  <script>
-    // Replace join links with proper redirect. Update the join URL in :root or replace all data-href attributes.
-    function setupButtons(){
-      const joinBtns = document.querySelectorAll('[data-href]');
-      joinBtns.forEach(btn=>{
-        btn.addEventListener('click', (e)=>{
-          e.preventDefault();
-          const url = btn.getAttribute('data-href');
-          if(!url || url === 'https://example.com'){
-            // fallback: prompt user to edit file for real link
-            window.alert('Replace the data-href attribute on #joinBtn and #joinBtn2 inside index.html with your server/join link.');
-            return;
-          }
-          // open in new tab if external
-          window.open(url, '_blank');
-        });
-      });
+ <script>
 
       document.getElementById('aboutBtn').addEventListener('click', ()=>{
         document.getElementById('about').scrollIntoView({behavior:'smooth'});
