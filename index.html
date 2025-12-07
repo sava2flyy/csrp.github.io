@@ -52,11 +52,11 @@
     .arrow{width:28px;height:28px;border-bottom:2px solid rgba(255,255,255,0.85);border-right:2px solid rgba(255,255,255,0.85);transform:rotate(45deg);animation: bounce 1.6s infinite}
     .arrow.two{animation-delay:0.2s;opacity:0.75}
     @keyframes bounce{0%{transform:translateY(0) rotate(45deg)}50%{transform:translateY(10px) rotate(45deg)}100%{transform:translateY(0) rotate(45deg)}}
-    #about{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(5,5,6,0.7), rgba(5,5,6,0.9));min-height:100vh}
-    .about-card{width:100%;max-width:1100px;padding:48px;border-radius:12px;background:rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(0,0,0,0.7)}
-    .about-title{font-size:28px;font-weight:800;margin-bottom:16px}
-    .about-text{color:rgba(255,255,255,0.9);line-height:1.6}
-    .muted{opacity:0.78;font-weight:600}
+
+    #about, #departments, #partner{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(5,5,6,0.7), rgba(5,5,6,0.9));min-height:100vh;flex-direction:column;}
+    .about-card, .departments-card, .partner-card{width:100%;max-width:1100px;padding:48px;border-radius:12px;background:rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(0,0,0,0.7);margin-bottom:40px}
+    .about-title, .departments-title, .partner-title{font-size:28px;font-weight:800;margin-bottom:16px}
+    .about-text, .departments-text, .partner-text{color:rgba(255,255,255,0.9);line-height:1.6;}
 
     @media (max-width:900px){
       .hero{grid-template-columns:1fr;}
@@ -88,16 +88,10 @@
     <section class="section" id="home">
       <div class="hero">
         <div class="left">
-          <div class="muted">Cali-RP • ER:LC • California</div>
           <h1 class="title">California's elite ER:LC server — <span style="color:var(--accent-red)">fast</span> • <span style="color:var(--accent-blue)">real</span> • <span style="color:var(--text-white)">immersive</span></h1>
           <p class="subtitle">Roleplay focused. Custom dispatch. Realistic emergency response. Join our community and step into California's busiest streets.</p>
-
           <div class="cta-row">
             <a class="btn btn-join" id="joinBtn" href="#" data-href="https://policeroleplay.community/join/CSRPOLD" title="Join">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M12 2v12" stroke="#042007" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M5 9l7-7 7 7" stroke="#042007" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
               <span>Join</span>
             </a>
             <a class="btn btn-about" href="https://discord.gg/qqj3XWhJ5" target="_blank">Discord</a>
@@ -106,11 +100,24 @@
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="departments">
+      <div class="departments-card">
+        <h2 class="departments-title">Departments</h2>
+        <p class="departments-text">We are currently looking for department heads for LASD, LAFD, and LADOT. Additionally, we have companies open for members to join and participate in specialized roles within our server.</p>
+      </div>
+    </section>
+
+    <section id="about">
       <div class="about-card">
         <h2 class="about-title">About Us</h2>
         <p class="about-text">We are a community-driven ER:LC California server inspired by immersive policing and emergency response roleplay. Our goal is to provide realistic, scripted-free, and fun roleplay with active staff, custom maps, and integrated dispatch systems.</p>
-        <p class="about-text" style="margin-top:12px">Our server emphasizes teamwork, in-character professionalism, and ongoing support for members. We run regular events, training sessions, and have a responsive moderation team.</p>
+      </div>
+    </section>
+
+    <section id="partner">
+      <div class="partner-card">
+        <h2 class="partner-title">Our Partner</h2>
+        <p class="partner-text">We recommend our users check out <a href="https://ophraxx.com" target="_blank" style="color:var(--accent-blue)">Ophraxx.com</a>, a Discord bot company that provides excellent tools and services for enhancing your server experience.</p>
       </div>
     </section>
   </main>
