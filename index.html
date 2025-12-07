@@ -1,174 +1,464 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>State Of California : RPC - Home</title> <!-- < set your community's name here -->
-	<link rel="stylesheet" href="/backend/css/main.css"> <!-- do not touch this, unless you know what u are doing.. -->
-	<script src="https://kit.fontawesome.com/af48d48999.js" crossorigin="anonymous"></script>
-    <meta property="og:title" content="State Of California RPC"> <!-- meta if u send links on discord etc includes this -->
-    <meta property="og:description" content="Go patrol or get fired.."> <!-- meta if u send links on discord etc includes this -->
-    <meta property="og:image" content="/backend/img/setting.php"> <!-- meta if u send links on discord etc includes this -->
-    <meta property="og:url" content=""> <!-- meta if u send links on discord etc includes this -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
-		function copyToClipboard(element) {
-		var $temp = $("<input>");
-		$("body").append($temp);
-		$temp.val($(element).text()).select();
-		document.execCommand("copy");
-		$temp.remove();
-		}
-	</script>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Ophraxx Moderation - Next-Gen Discord Security</title>
+  <meta name="title" content="Ophraxx Moderation - Next-Gen Discord Security">
+  <meta name="description" content="Experience the future of Discord moderation with AI-powered protection, real-time analytics, and seamless automation.">
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ophraxx.com/">
+  <meta property="og:title" content="Ophraxx Moderation - Next-Gen Discord Security">
+  <meta property="og:description" content="Transform your Discord server with enterprise-grade moderation, intelligent automation, and 24/7 protection.">
+  <meta property="og:image" content="images/ophraxx-preview.png">
+  <meta property="og:site_name" content="Ophraxx Moderation">
+  <meta property="og:color" content="#6366f1">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#6366f1">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/ophraxx.png" type="image/x-icon">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/redesigned-style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/all.min.css">
+
+  <!-- Particles.js for Background -->
+  <script src="js/particles.min.js"></script>
+
+  <style>
+    /* Coming Soon Badge Styles */
+    .coming-soon-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 6px 12px;
+      background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+      animation: pulse 2s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+      }
+
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5);
+      }
+    }
+
+    .feature-highlight {
+      position: relative;
+    }
+
+    /* Add slight opacity to coming soon card */
+    .feature-highlight.coming-soon {
+      opacity: 0.95;
+    }
+
+    .feature-highlight.coming-soon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(249, 115, 22, 0.05) 100%);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+  </style>
 </head>
-<body>
-	<header>
-		<div class="wrapper">
-			<nav>
-				<!-- <img src="logo" alt="header_logo"> --> <!-- set your community logo here make sure to hide the community name if you do change=! --> 
-				<h2>State Of <span>California</span></h2> <!-- set your community name here --> 
-				<div class="right">
-					<a href="#"> <button class="custom-button custom-button-primary">Forum</button></a>  <!-- change the discord link to your discord's server link -->
-					<a href="https://www.discord.gg/XTvjfhQzDz"><button class="custom-button custom-button-primary">Discord</button></a>  <!-- change the discord link to your discord's server link -->
-					<a href="/team.php"><button class="custom-button custom-button-primary">Staff Team</button></a> <!-- The Staff Team Page! -->
-					<a href="/gallery.php"><button class="custom-button custom-button-primary">Our Photos</button></a> <!-- to be added to next update -->
-					<a href="/partners.php"><button class="custom-button custom-button-primary">Our Partners</button></a> <!-- The Partner Page! -->
-					<a href="https://github.com/Coldalliance/FiveM-Website-Template"> <button class="custom-button custom-button-info">Made By Charley J</button></a> <!-- Made By Charley J, Please Keep Credits! -->
 
-				</div>
-			</nav>
-		</div>
-	</header>
-	<main>
-		<div class="wrapper">
-			<div class="section-promo">
-				<div class="promo-background">
-				
-					<h1>Serve & Protect the Citizens of State of California.</h1> <!-- set here title of the promo header -->
-				</div>
-			</div>
-			<div class="section-tutorial">
-				<h2>Let's get started with the basics.</h2> 
-				<div class="wrapper-tutorial">
-					<div class="section-tutorial-container">
-						<div class="rtr">
-							<h3><i class="fas fa-book"></i>Read the Rules</h3>
-							<p>Server Rules Baisc Set Here!.</p> <!-- set here requested stuff you can do alot of things here visit w3schools -->
-						</div>
-						<div class="jts">
-							<h3><i class="fas fa-sign-in-alt"></i>Join the Server</h3>
-							<h4><span class="lnumbers1">1.</span> Open FiveM</h4>
-							<h4><span class="lnumbers">2.</span> Click & Paste <button id="serverip" onclick="copyToClipboard('#serverip')">example.com:port</button></h4> <!-- set server ip here -->
-							<h4><span class="lnumbers">3.</span> Connect to the Server</h4>
-						</div>
-						<div class="dsc">
-							<h3><i class="fab fa-discord"></i>Join our Discord</h3>
-							<p>Chat with fellow members and be part of the community, and receive the latest information & updates by joining our discord server!</p>
-							<a href="https://www.discord.gg/XTvjfhQzDz"><i class="fab fa-discord"></i>State Of California RPC</a>
-						</div>
-						<div class="pab">
-							<h3><i class="fas fa-helicopter"></i>Patrol a beat</h3>
-							<p>Come Patrol With Us And Serve The Citizens Of California!</p> <!-- add some info about patrolling on your server -->
-						</div>
-					</div>
-				</div>
-			</div>
+<body class="loaded">
+  <!-- Animated Background -->
+  <div id="particles-js"><canvas class="particles-js-canvas-el" width="1342" height="922" style="width: 100%; height: 100%;"></canvas></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">OPHRAXX</span>
+      </a>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="our-impact.html" class="nav-link">Impact</a>
+        <a href="https://discord.gg/EvXc2kX5RC" class="nav-link" target="_blank">Support</a>
+
+        <div class="nav-actions">
+          <a href="https://discord.com/oauth2/authorize?client_id=1430018266088083496&amp;permissions=8&amp;integration_type=0&amp;scope=bot" class="btn btn-primary" target="_blank">
+            <i class="fab fa-discord"></i>
+            <span>Add to Server</span>
+          </a>
+        </div>
+      </div>
+
+      <button class="mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-sparkles"></i>
+          <span>Trusted by 5,000+ Users</span>
+        </div>
+
+        <h1 class="hero-title">
+          Discord Moderation,
+          <span class="gradient-text">Reimagined</span>
+        </h1>
+
+        <p class="hero-description">
+          Protect your community with cutting-edge AI moderation, real-time threat detection,
+          and powerful automation tools—all in one elegant solution.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <i class="fas fa-bolt"></i>
+            <span>
+              &lt; 30ms Response</span>
+          </div>
+          <div class="stat-pill">
+            <i class="fas fa-shield-check"></i>
+            <span>99.99% Uptime</span>
+          </div>
+          <div class="stat-pill">
+            <i class="fas fa-infinity"></i>
+            <span>Forever Free</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://discord.com/oauth2/authorize?client_id=1430018266088083496&amp;permissions=8&amp;integration_type=0&amp;scope=bot" class="btn btn-primary btn-large" target="_blank">
+            <i class="fab fa-discord"></i>
+            <span>Get Started Free</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="hero-social-proof">
+          <div class="avatar-stack">
+            <div class="avatar" style="background-image: url('images/09f26f5c78aa84e86884e489812c8b3d.webp');">
+            </div>
+            <div class="avatar" style="background-image: url('images/1e067f669ec1162922566f4e5957bdf4.webp');">
+            </div>
+            <div class="avatar" style="background-image: url('images/ef7390bfcb6d4932fc30e85f86366efa.webp');">
+            </div>
+            <div class="avatar" style="background-image: url('images/06a89de4005ab2fa01e0b9af253f9b17.webp');">
+            </div>
+          </div>
+          <p>Join thousands of users already using Ophraxx</p>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="floating-card card-1">
+          <i class="fas fa-user-shield"></i>
+          <span>Advanced Protection</span>
+        </div>
+        <div class="floating-card card-2">
+          <i class="fas fa-brain"></i>
+          <span>AI-Powered</span>
+        </div>
+        <div class="floating-card card-3">
+          <i class="fas fa-chart-line"></i>
+          <span>Real-Time Analytics</span>
+        </div>
+        <div class="hero-mockup">
+          <div class="mockup-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">FEATURES</span>
+        <h2 class="section-title">Everything You Need, <span class="gradient-text">Nothing You Don't</span></h2>
+        <p class="section-subtitle">Powerful moderation tools designed for modern Discord communities</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card feature-highlight coming-soon" style="opacity: 0; transform: translateY(30px); transition: 0.6s;">
+          <span class="coming-soon-badge">
+            <i class="fas fa-clock"></i> Coming Soon
+          </span>
+          <div class="feature-icon-large">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI-Powered Moderation</h3>
+          <p>Intelligent threat detection and automatic response to keep your server safe 24/7</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Smart spam detection</li>
+            <li><i class="fas fa-check"></i> Toxic language filtering</li>
+            <li><i class="fas fa-check"></i> Auto-escalation system</li>
+          </ul>
+        </div>
+
+        <div class="feature-card" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.1s;">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>Sub-30ms response times ensure instant moderation actions when seconds matter</p>
+        </div>
+
+        <div class="feature-card" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.2s;">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Advanced Analytics</h3>
+          <p>Real-time dashboards and insights to understand your community better</p>
+        </div>
+
+        <div class="feature-card" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.3s;">
+          <div class="feature-icon">
+            <i class="fas fa-sliders"></i>
+          </div>
+          <h3>Fully Customizable</h3>
+          <p>Configure every aspect to match your server's unique needs and style</p>
+        </div>
+
+        <div class="feature-card" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.4s;">
+          <div class="feature-icon">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <h3>Enterprise Security</h3>
+          <p>Bank-grade encryption and security measures protect your data</p>
+        </div>
+
+        <div class="feature-card" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.5s;">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Expert support team ready to help anytime with &lt;10min response time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commands Preview -->
+  <section class="commands-preview" id="commands">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">COMMANDS</span>
+        <h2 class="section-title">Powerful Commands, <span class="gradient-text">Simple Syntax</span></h2>
+        <p class="section-subtitle">Comprehensive moderation toolkit at your fingertips</p>
+      </div>
+
+      <div class="commands-showcase">
+        <div class="command-categories">
+          <button class="category-btn active" data-category="moderation">
+            <i class="fas fa-gavel"></i>
+            <span>Moderation</span>
+          </button>
+          <button class="category-btn" data-category="utility">
+            <i class="fas fa-wrench"></i>
+            <span>Utility</span>
+          </button>
+          <button class="category-btn" data-category="info">
+            <i class="fas fa-info-circle"></i>
+            <span>Information</span>
+          </button>
+        </div>
+
+        <div class="commands-terminal">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="terminal-title">ophraxx-commands</span>
+          </div>
+          <div class="terminal-body">
+            <!-- Moderation Commands -->
+            <div class="command-group active" data-group="moderation">
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.6s;">
+                <span class="prompt">$</span>
+                <span class="command">/ban @user Spamming</span>
+              </div>
+              <div class="command-output">
+                <i class="fas fa-check-circle"></i> User banned successfully
+              </div>
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.7s;">
+                <span class="prompt">$</span>
+                <span class="command">/warn @user Rule violation</span>
+              </div>
+              <div class="command-output">
+                <i class="fas fa-exclamation-triangle"></i> Warning issued - Total: 2/3
+              </div>
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.8s;">
+                <span class="prompt">$</span>
+                <span class="command typing">/warn @user Please follow rules</span>
+              </div>
+            </div>
+
+            <!-- Utility Commands -->
+            <div class="command-group" data-group="utility">
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 0.9s;">
+                <span class="prompt">$</span>
+                <span class="command">/lock #general Maintenance</span>
+              </div>
+              <div class="command-output">
+                <i class="fas fa-lock"></i> Channel locked successfully
+              </div>
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1s;">
+                <span class="prompt">$</span>
+                <span class="command">/purge 50</span>
+              </div>
+              <div class="command-output">
+                <i class="fas fa-check-circle"></i> Deleted 50 messages
+              </div>
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1.1s;">
+                <span class="prompt">$</span>
+                <span class="command typing"></span>
+              </div>
+            </div>
+
+            <!-- Information Commands -->
+            <div class="command-group" data-group="info">
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1.2s;">
+                <span class="prompt">$</span>
+                <span class="command">/serverinfo</span>
+              </div>
+              <div class="command-output">
+                <i class="fas fa-server"></i> Server: Ophraxx Community | Members: 10,234
+              </div>
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1.3s;">
+                <span class="prompt">$</span>
+                <span class="command">/userinfo @member</span>
+              </div>
+              <div class="command-output">
+                <i class="fas fa-user"></i> User details retrieved
+              </div>
+              <div class="command-line" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1.4s;">
+                <span class="prompt">$</span>
+                <span class="command typing"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="command-stats">
+        <div class="stat-box" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1.5s;">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Commands</div>
+        </div>
+        <div class="stat-box" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1.6s;">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Slash Support</div>
+        </div>
+        <div class="stat-box" style="opacity: 0; transform: translateY(30px); transition: 0.6s 1.7s;">
+          <div class="stat-number">0ms</div>
+          <div class="stat-label">Latency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Ready to Transform Your Server?</h2>
+          <p>Join thousands of communities using Ophraxx for safer, better-managed Discord servers</p>
+          <div class="cta-buttons">
+            <a href="https://discord.com/oauth2/authorize?client_id=1430018266088083496&amp;permissions=8&amp;integration_type=0&amp;scope=bot" class="btn btn-primary btn-large" target="_blank">
+              <i class="fab fa-discord"></i>
+              <span>Add to Discord</span>
+            </a>
+            <a href="https://discord.gg/EvXc2kX5RC" class="btn btn-secondary btn-large" target="_blank">
+              <i class="fas fa-comments"></i>
+              <span>Join Community</span>
+            </a>
+          </div>
+        </div>
+        <div class="cta-decoration">
+          <div class="decoration-circle circle-1"></div>
+          <div class="decoration-circle circle-2"></div>
+          <div class="decoration-circle circle-3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-text">OPHRAXX</span>
+          </div>
+          <p>Next-generation Discord moderation for safer communities.</p>
+          <div class="social-links">
+            <a href="https://discord.gg/rwQ6T4dbCH" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://x.com/Ophraxxdc" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="document.html">Documentation</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="team.html">Team</a>
+          <a href="our-impact.html">Impact</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy</a>
+          <a href="tos.html">Terms</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>� 2025 Ophraxx Moderation. All rights reserved.</p>
+        <p>Made with <i class="fas fa-heart"></i> for Discord communities</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/redesigned-script.js"></script>
 
 
-
-
-
-
-
-			<!-- NEWS TITLES HERE 
-
-				To Make More Slots, Just Copy And Paste From <div class="section-extrea"> to the next lot of </div> and then repaste this, it will then create a new section! 
-				ADD <br> </br> to make a gap between these sections if you want a gap!
-
-			--> 
-
-			<div class="section-extra">
-				<h2>Read the latest news.</h2>
-				<div class="section-extra-flex">
-					<div class="img1"> <!-- community image 1 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here? <p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-
-
-					<div class="img2"> <!-- community image 2 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here?<p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-
-
-					<div class="img3"> <!-- community image 3 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here? <p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-
-
-					<div class="img4"> <!-- community image 4 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here?<p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-					
-
-				</div>
-
-				
-			</div>
-			
-			<div class="section-extra">
-				<br> </br>
-				<div class="section-extra-flex">
-					<div class="img1"> <!-- community image 1 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here? <p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-
-
-					<div class="img2"> <!-- community image 2 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here?<p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-
-
-					<div class="img3"> <!-- community image 3 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here? <p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-
-
-					<div class="img4"> <!-- community image 4 change image check css -->
-						<h3>Title</h3>
-						<p>So here is an text-place-holder.. please make sure to provide content here?<p>
-						<a href="#">Link</a> <!-- forum post link or discord whatever -->
-					</div>
-					
-
-				</div>
-
-				
-			</div>
-			
-		</div>
-	</main>
-
-
-    <footer>
-		<div class="wrapper">
-			<p><h2>  [RP Community Name] </h2><br><h3>© 2023 Made By Hamster-Systems</h3></p>
-		</div>
-	</footer>
-
-
-</body>
-</html>
+</body></html>
