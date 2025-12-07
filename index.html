@@ -97,18 +97,21 @@
   </main>
 
   <script>
-    // Detect device type and apply class to body
-    function detectDevice() {
-      const ua = navigator.userAgent;
-      const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua);
-      if(isMobile){
-        document.body.classList.add('mobile');
+    // Detect device type based on window width
+    function applyDeviceScaling() {
+      const width = window.innerWidth;
+      const body = document.body;
+      body.classList.remove('mobile', 'pc');
+      if(width <= 900){
+        body.classList.add('mobile');
       } else {
-        document.body.classList.add('pc');
+        body.classList.add('pc');
       }
     }
 
-    detectDevice();
+    // Initial detection and resize listener
+    applyDeviceScaling();
+    window.addEventListener('resize', applyDeviceScaling);
 
     document.getElementById('closePopup').addEventListener('click', ()=>{
       document.getElementById('popupHeader').style.display='none';
