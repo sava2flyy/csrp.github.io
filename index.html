@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Cali-RP — ER:LC California Server</title>
   <meta name="description" content="California ER:LC — join our server" />
   <style>
@@ -36,38 +36,35 @@
     .grain{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);background-size:4px 4px;mix-blend-mode:overlay;opacity:0.25;}
 
     .section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:4rem 6vw;position:relative;z-index:2;flex-direction:column;}
-    .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;width:100%;max-width:1300px}
-    .left{min-height:70vh;display:flex;align-items:flex-start;justify-content:flex-start;flex-direction:column;gap:18px;padding:6vh 4vw;max-width:640px;align-self:stretch;}
+    .hero{display:flex;align-items:center;justify-content:center;width:100%;max-width:1300px}
+    .left{display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding:6vh 4vw;max-width:640px;}
     .title{font-size:clamp(28px,6vw,64px);line-height:1.1;font-weight:800;color:var(--text-white);text-align:left;word-wrap:break-word}
-    .subtitle{font-size:clamp(14px,1.6vw,20px);opacity:0.9;margin-top:6px;color:rgba(255,255,255,0.9);word-wrap:break-word}
+    .subtitle{font-size:clamp(14px,1.6vw,20px);opacity:0.9;color:rgba(255,255,255,0.9);word-wrap:break-word}
     .cta-row{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;font-weight:700;border:0;cursor:pointer;text-decoration:none;white-space:nowrap}
-    .btn:active{transform:translateY(1px)}
     .btn-join{background:linear-gradient(180deg,var(--green-join),#0f7e36);color:#042007;box-shadow:0 6px 18px rgba(24,168,75,0.18)}
     .btn-about{background:var(--gray-btn);color:var(--accent-black)}
 
-    .popup-header{position:fixed;top:0;left:0;width:100%;background:#e11d48;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;font-family:Inter, sans-serif;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,0.3);flex-wrap:wrap}
+    .popup-header{position:fixed;top:0;left:0;width:100%;background:#e11d48;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;font-family:Inter, sans-serif;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,0.3);}
     .popup-header span{display:flex;align-items:center;gap:8px;flex:1;flex-wrap:wrap}
     .popup-header .plant-icon{width:24px;height:24px;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Plant_icon.svg/1200px-Plant_icon.svg.png') no-repeat center center/contain;}
     .popup-header a{color:#0ea5e9;text-decoration:underline;font-weight:700}
     .popup-header .close-btn{cursor:pointer;font-weight:900;font-size:18px;color:#fff;margin-left:12px}
 
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .left{justify-content:flex-start;align-items:flex-start;text-align:left;padding:8vh 5vw;}
-      .title{font-size:clamp(24px,6vw,48px)}
+      .hero{flex-direction:column;align-items:center;text-align:center;}
+      .left{align-items:center;gap:12px;padding:6vh 4vw;}
+      .title{font-size:clamp(24px,8vw,48px)}
       .subtitle{font-size:16px}
-      .cta-row{flex-direction:column;align-items:flex-start;gap:12px}
-      .btn{width:100%;justify-content:center}
-      .popup-header{flex-direction:column;align-items:flex-start;gap:6px;padding:10px}
-      .popup-header .close-btn{align-self:flex-end}
+      .cta-row{flex-direction:column;align-items:center;gap:12px;width:100%}
+      .btn{width:80%;justify-content:center}
+      .popup-header{flex-direction:column;align-items:center;text-align:center;padding:12px;gap:6px}
+      .popup-header .close-btn{align-self:center}
     }
     @media (max-width:480px){
-      .left{padding:6vh 4vw}
-      .title{font-size:clamp(20px,5vw,40px)}
+      .title{font-size:clamp(20px,10vw,40px)}
       .subtitle{font-size:14px}
-      .cta-row{gap:10px}
-      .popup-header{padding:8px;gap:4px}
+      .btn{width:90%}
       .popup-header span{font-size:14px}
       .popup-header a{font-size:14px}
       .popup-header .close-btn{font-size:16px}
